@@ -11,16 +11,18 @@
           {{ partial "icon.html" "clock" }}
           {{ .ReadingTime }} min read
         </div>
-        {{- with .Params.tags -}}
-        <div>
+
+        {{ $taxo := "tags" }}
+        <div id="{{ $taxo }}">
           {{ partial "icon.html" "tag" }}
-          {{ range . -}}
-            {{- with $.Site.GetPage (printf "/%s/%s" "tags" . ) -}}
-              <a class="tag" href="{{ .Permalink }}">{{ .Title }}</a>
-            {{- end -}}
-          {{- end -}}
+
+          {{ range .Param $taxo }}
+            {{ $name := . }}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxo ($name | urlize)) }}
+              <a class="tag" href="{{ .Permalink }}">{{ $name }}</a></li>
+            {{ end }}
+          {{ end }}
         </div>
-        {{- end -}}
       </div>
     </header>
     <div class="post-content">
