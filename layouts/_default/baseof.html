@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
   </head>
   <body>
+    {{ if .Site.Params.showSidebar}}
     <header class="app-header">
       <a href="/"><img class="app-header-avatar" src="/avatar.jpg" /></a>
       <h1>{{ .Site.Title }}</h1>
@@ -22,6 +23,7 @@
         {{ end }}
       </div>
     </header>
+    {{ end }}
     <main class="app-container">
       {{ block "main" . }}
         {{ .Content }}
