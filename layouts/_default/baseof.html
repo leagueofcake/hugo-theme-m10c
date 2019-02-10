@@ -17,9 +17,10 @@
       <a href="/"><img class="app-header-avatar" src="/avatar.jpg" /></a>
       <h1>{{ .Site.Title }}</h1>
       <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
-      <p><a href="/posts">Posts</a></p>
-      <p><a href="/TODO">TODO</a></p>
-      <p><a href="/resources">Resources</a></p>
+      {{ range .Site.Sections }}
+        <p><a href="{{.Permalink}}">{{ .Name }}</a></p>
+      {{ end }}
+
       <div class="app-header-social">
         {{ range .Site.Params.social }}
           <a target="_blank" href="{{ .url }}">{{ partial "icon.html" .name }}</a>
