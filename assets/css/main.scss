@@ -141,3 +141,21 @@ pre {
     margin-left: 20rem;
   }
 }
+
+table {
+    border-collapse: collapse;
+    background-color: $lightest-color;
+    color: $darkest-color;
+}
+
+table, th, td {
+    border: 1px solid $darkest-color;
+}
+
+th {
+    background-color: $light-color;
+}
+
+th, td {
+    padding: 5px;
+}
